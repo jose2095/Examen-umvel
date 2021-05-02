@@ -5,19 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './pages/login/login.component';
-import {MaterialModule} from './material/material.module'
+import {MaterialModule} from './material/material.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-import {MatSidenavModule} from '@angular/material/sidenav';
-import { MainComponent } from './pages/main/main.component';
-import {MatListModule} from '@angular/material/list';
-import {MatButtonModule} from '@angular/material/button';
+
+import { ComponentsModule } from './components/components.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
   ],
   imports: [
     BrowserModule,
@@ -27,9 +25,7 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSidenavModule,
-    MatListModule,
-    MatButtonModule
+    ComponentsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
