@@ -1,0 +1,41 @@
+<div class="main-container">
+    <div class="login-container">
+        <h1>Iniciar sesión</h1>
+        <form>
+            <div class="input-container">
+                <mat-label>Correo electrónico</mat-label>
+                <mat-form-field appearance="outline">
+                    <input id="userInput" matInput  required type="email">                
+                    <mat-error class="error">
+                    Éste campo es obligatorio
+                  </mat-error>
+                  <mat-error class="error" >
+                    Formato invalido
+                  </mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <div class="input-container">
+                <mat-label>Password</mat-label>
+                <mat-form-field appearance="outline">
+                    <input id="passInput" matInput type="password" required>
+                    <mat-error class="error" >
+                        Éste campo es obligatorio
+                      </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <button 
+                id="login"
+                (click)="login()"
+                >
+                <mat-icon *ngIf="loading" style="margin-right: 5px;"><mat-spinner diameter="20">
+                </mat-spinner></mat-icon>
+                Inciar sesión</button>
+            </div>
+        </form>
+
+    </div>
+</div>
