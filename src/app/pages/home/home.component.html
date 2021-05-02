@@ -25,25 +25,25 @@
     
     <div class="list-container">
       <div class="search">
-        <input type="text" placeholder="Search">
-        <button mat-button >
+        <input [(ngModel)]="queySearch" type="text" placeholder="Search">
+        <button mat-button (click)="sort()">
           <mat-icon>sort_by_alpha</mat-icon>
         </button>
       </div>
-      <div *ngFor="let user of [1,2,3,4]">
+      <div *ngFor="let user of users?.data" (click)="getDetails(user.id)">
         <div>
-          <app-user></app-user>
+          <app-user [user]="user"></app-user>
         </div>
 
       </div>
       <div class="paginator-container">
-        <button mat-button>
+        <button mat-button (click)="prevPage()">
           <mat-icon>navigate_before</mat-icon>Prev.
         </button>
         <div>
-          <mat-label>1 of 2</mat-label>
+          <mat-label>{{users?.page}} of {{users?.total_pages}}</mat-label>
         </div>
-        <button mat-button >Next<mat-icon>navigate_next</mat-icon></button>
+        <button mat-button (click)="nextPage()">Next<mat-icon>navigate_next</mat-icon></button>
       </div>
     </div>
 
@@ -51,19 +51,19 @@
   <mat-drawer-content>
 
 
-    <div class="detail-container">
+    <div class="detail-container" *ngIf="selectedUser">
       
       <div class="detail">
-        <button style="align-self: center;" mat-button >
+        <button style="align-self: center;" mat-button *ngIf="screenWidth<640" (click)="listdrawer.open()">
           <mat-icon>navigate_before</mat-icon>Back
         </button>
-        <app-userdetail [user]="{first_name:'jose',last_name:'robles',email:'jcalvo@io.io'}"></app-userdetail>
+        <app-userdetail [user]="selectedUser"></app-userdetail>
       </div>
 
       <div class="posts-container">
-        <h1 style="text-align: center;">No posts found</h1>
-        <div *ngFor="let post of [1,2,3,4] let i= index">
-          <app-post></app-post>
+        <h1 *ngIf="posts.length==0" style="text-align: center;">No posts found</h1>
+        <div *ngFor="let post of posts let i= index">
+          <app-post [posts]="post" [index]="i" (delete)="deletePost($event)"></app-post>
         </div>
       </div>
 
