@@ -11,6 +11,11 @@
         </mat-panel-description>
       </mat-expansion-panel-header>
       <div style="width: 100%; display: flex; justify-content: center;">
+         <google-chart
+     [data]="data"
+     [title]="'Posts'"
+     [type]="type"
+     ></google-chart>
       </div>
     
     </mat-expansion-panel>
@@ -30,7 +35,7 @@
           <mat-icon>sort_by_alpha</mat-icon>
         </button>
       </div>
-      <div *ngFor="let user of users?.data" (click)="getDetails(user.id)">
+      <div *ngFor="let user of users?.data | search: queySearch" (click)="getDetails(user.id)">
         <div>
           <app-user [user]="user"></app-user>
         </div>

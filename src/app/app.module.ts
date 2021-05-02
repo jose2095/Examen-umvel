@@ -9,15 +9,17 @@ import {MaterialModule} from './material/material.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
-
 import { ComponentsModule } from './components/components.module';
 import { HomeComponent } from './pages/home/home.component';
+import { GoogleChartsModule } from 'angular-google-charts';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +30,7 @@ import { HomeComponent } from './pages/home/home.component';
     ReactiveFormsModule,
     HttpClientModule,
     ComponentsModule,
+    GoogleChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

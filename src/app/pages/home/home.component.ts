@@ -6,8 +6,8 @@ import { Users } from 'src/app/models/users';
 import { PostsService } from 'src/app/services/posts.service';
 import { UsersService } from 'src/app/services/users.service';
 import { Utils } from 'src/app/utils/Utils';
-import { ChangeDetectorRef } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
+import { ChartType } from 'angular-google-charts';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
   public queySearch: string = '';
   private util = new Utils();
   screenWidth: number = 0;
+  public type: ChartType = ChartType.AreaChart;
   data: any = [];
 
 
