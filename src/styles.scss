@@ -1,4 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; margin: 0; }
+html, body { height: 100%; width: 100%;font-family: 'Poppins', sans-serif !important; }
+:root{
+    //colors
+    --purple: #7A3294; 
+    --ligth-purple:#D2B4DE;
+    --custom-blue:#257BA6;
+    --primary-blue:#3498DB;
+    --ligth-blue:#D6EAF8;
+    --ligth-gray:#F5F5F5;
+ 
+    --primary-green:#58D68D;
+    //sizing
+    --margin-t:20px;
+    --margin-b:20px;
+ }
+
+ 
+mat-form-field{
+    display: flex;
+ }
+ 
+ .input-container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: var(--margin-b);
+ }
+ 
+ .mat-form-field-wrapper
+ {
+     width: 100% !important;
+ }
+
+
+ 
+ // custom scroll 
+ ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color:#F5F5F5 ; 
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #BFC9CA; 
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: gray; 
+  }
