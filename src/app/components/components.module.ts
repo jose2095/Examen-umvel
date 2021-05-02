@@ -29,7 +29,7 @@ import { PostComponent } from './post/post.component';
     MatButtonModule,
     FormsModule
   ],
-  exports: [UserComponent,MainComponent,UserdetailComponent]
+  exports: [UserComponent,MainComponent,UserdetailComponent,PostComponent]
 })
 
 export class ComponentsModule { }
