@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/services/auth.service';
 
 
 @Component({
@@ -14,12 +15,28 @@ export class LoginComponent implements OnInit {
   public authForm: FormGroup;
   public loading: boolean = false;
 
-  constructor() {
-   
+  constructor(
+    private _formBuilder: FormBuilder,
+    private _authService: AuthService,
+    private _router: Router) {
+    this.authForm = this._formBuilder.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', Validators.required]
+      }
+    )
   }
 
   login() {
-    
+    this.loading = true;
+    this._authService.login(this.authForm.value)
+      .subscribe(res => {
+        this.loading = false;
+     
+      },
+        error => {
+          this.loading = false;
+        })
   }
 
   ngOnInit(): void {
