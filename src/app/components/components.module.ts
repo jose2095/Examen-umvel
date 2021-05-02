@@ -11,6 +11,7 @@ import { UserdetailComponent } from './userdetail/userdetail.component';
 import { FormsModule } from '@angular/forms';
 
 import { PostComponent } from './post/post.component';
+import { DialogComponent } from './dialog/dialog.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PostComponent } from './post/post.component';
     UserComponent,
     MainComponent,
     UserdetailComponent,
-    PostComponent
+    PostComponent,
+    DialogComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +31,7 @@ import { PostComponent } from './post/post.component';
     MatButtonModule,
     FormsModule
   ],
-  exports: [UserComponent,MainComponent,UserdetailComponent]
+  exports: [UserComponent,MainComponent,UserdetailComponent,PostComponent]
 })
 
 export class ComponentsModule { }
