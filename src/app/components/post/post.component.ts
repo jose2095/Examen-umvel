@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Post } from 'src/app/models/post';
-
+import { DialogService } from 'src/app/services/dialog.service';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-post',
@@ -13,7 +14,7 @@ export class PostComponent implements OnInit {
   @Input() index:number;
   @Output() delete:EventEmitter<number>=new EventEmitter<number>();
 
-  constructor() { }
+  constructor(private _postService:PostsService,private _dialogService:DialogService) { }
 
   ngOnInit(): void {
   }
@@ -24,7 +25,14 @@ export class PostComponent implements OnInit {
    * @param {number} id user id 
    */
   deletePost(id:number){
-   
+    this._postService.deletePost(id)
+    .subscribe(()=>{
+      this._dialogService.open("Done","completed successfully");
+      this.delete.emit(this.index);
+    },err=>{
+      this._dialogService.open("Error","an error occurred");
+    })
   }
 
 }
+
